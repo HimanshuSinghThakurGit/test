@@ -22,15 +22,15 @@ pipeline {
         }
         stage('Deploy to Local Server') {
             steps {
-                bat 'copy target\\demo.jar C:\\LocalServer\\demo.jar'
-                bat 'start /B "C:\\Program Files\\Java\\jdk-21.0.3\\bin\\java" -jar C:\\LocalServer\\demo.jar'
+                bat 'copy target\\demo-0.0.1-SNAPSHOT.jar C:\\LocalServer\\demo-0.0.1-SNAPSHOT.jar'
+                bat 'start /B "C:\\Program Files\\Java\\jdk-21.0.3\\bin\\java" -jar C:\\LocalServer\\demo-0.0.1-SNAPSHOT.jar'
             }
         }
         stage('Deploy to Production Server') {
             steps {
                 input message: 'Deploy to Production?', ok: 'Yes'
-                bat 'copy target\\demo.jar C:\\ProdServer\\demo.jar'
-                bat 'start /B "C:\\Program Files\\Java\\jdk-21.0.3\\bin\\java" -jar C:\\ProdServer\\demo.jar'
+                bat 'copy target\\demo-0.0.1-SNAPSHOT.jar C:\\ProdServer\\demo-0.0.1-SNAPSHOT.jar'
+                bat 'start /B "C:\\Program Files\\Java\\jdk-21.0.3\\bin\\java" -jar C:\\ProdServer\\demo-0.0.1-SNAPSHOT.jar'
             }
         }
     }
